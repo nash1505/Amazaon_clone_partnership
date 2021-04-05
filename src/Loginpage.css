@@ -1,0 +1,11 @@
+.Login-box{
+    border: solid 1px black;
+    padding: 10px;
+    width: 50%;
+    height: 50vmin;
+    
+    margin-top: -85vmin;
+    margin-left: 60vmin;
+   position: fixed;
+    
+}

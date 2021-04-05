@@ -1,0 +1,81 @@
+.c1{
+    background-color:#131921;
+    max-height: 120px;
+    color:white;
+    font-weight: bold;
+    
+}
+.logo:hover{
+    border: white 1px solid;
+}
+.add:hover{
+border: white 1px solid;
+}
+.textbold{
+    font-size: 12px;
+}
+.c1 .row{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.searchbutton{
+    background-color: #F3A847;
+}
+.dropdown_1{
+    align-items: center;
+    margin-left: 7px;
+    padding-left: 12px;
+    background-color: whitesmoke;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: inline-flex;
+}
+.flag{
+    background-color:#131921;
+    margin-left: 10px;  
+    
+}
+
+.flag .text{
+    margin-left: 17px;;
+}
+
+.flag:hover{
+border: white 1px solid;
+}
+.sign{
+    margin-left: 10vmin;
+}
+.return:hover{
+    border: white 1px solid;
+    
+}
+.return a{
+    color: white;
+}
+.return a:hover{
+    color: white;
+}
+.return{
+    text-decoration: none;
+    margin-left: 10vmin;
+    
+}
+.cart:hover
+{
+    border: white 1px solid;
+}
+.cart{
+   margin-left: 10vmin;;
+}
+.sign:hover{
+    border: white 1px solid;
+}
+.nav-bar{
+    
+    background-color: #232F3E;
+    
+}
+.nav-text{
+    color: white;
+}
