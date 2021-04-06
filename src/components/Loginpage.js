@@ -1,41 +1,72 @@
-import React from 'react';
-import fire from '../fire'
-import '../Loginpage.css'
-import {useState,useEffect} from 'react'
-const Login = () => {
-const [user,setUser] = useState('');
-const [email,setEmail] = useState('');
-const [password,setPassword] = useState('');
-const [emailError,setEmailError] = useState('');
-const [password,setPasswordError] = useState('');
-const [hasAccount,setHasAccount] = useState(false);
+import React, { useState } from "react";
+import { Button, Form } from "semantic-ui-react";
+import { auth } from "../fire";
+import "../Loginpage.css";
+import { Link, useHistory } from "react-router-dom";
+import logo from '../images/download.png'
 
+function Loginpage() {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const signIn = (e) => {
+    e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
+  };
+  const register = (e) => {
+    e.preventDefault();
 
-const handleLogin = () => 
-{
-    fire
-    
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        console.log(auth);
+        if (auth) {
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
+  };
 
+  return (
+    <div className="login">
+      <Link to="/">
+        <img
+          classname="login_logo"
+          src={logo}
+        />
+      </Link>
+      <div className="login_container">
+        <h1>Sign-in</h1>
+        <form>
+          <h5>E-mail</h5>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <h5>Password</h5>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" className="login_signInButton" onClick={signIn}>
+            Sign In
+          </button>
+        </form>
+        <p>By continuing, you agree to Conditions of Use and Privacy Notice.</p>
+        <p>----------------------New to Amazon?------------------</p>
+        <button className="login_registerButton" onClick={register}>
+          Create Your Amazon Account
+        </button>
+      </div>
+    </div>
+  );
 }
 
-    return (
-        <div class="ui fluid container">
-            <div class="Login-box">
-                <h1>Sign-In</h1>
-                <form>
-                    <label>Email or mobile phone number</label>
-                    <p><input type="text">
-                    </input></p>
-                    <label>Password</label>
-                    <p><input type="password">
-                    </input></p>
-                    <div class="Button-container">
-                    <button>Sign In</button>
-                    </div>
-                </form>
-               
-            </div>
-        </div>
-    )
-}
-export default Login
+export default Loginpage;
